@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns ="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <bean class="com.practice.spring.AutoWiring1" name="auto">
+    <property name="street" value="Gangashahar"/>
+    <property name="city" value="Bikaner"/>
+</bean>
+    <bean class="com.practice.spring.AutoWiring1" name="auto21">
+        <property name="street" value="Street"/>
+        <property name="city" value="Kanpur"/>
+    </bean>
+<!--
+1.In byName auto-wire the name bean of parent class is same as the object of reference class
+2. In byType auto-wire it will check the data-type of the parent class and reference class that it matches or not
+3.In constructor auto-wire it will check for the constructor with same name of bean or else it will hit the given constructor
+-->
+    <bean class="com.practice.spring.AutoWiring" name="emp" autowire="constructor"/>
+
+</beans>

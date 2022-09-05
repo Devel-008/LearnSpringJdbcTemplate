@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:content="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        ">
+
+    <bean class="com.practice.spring.Student" name="student1" p:id="4" p:sName="Mahi" p:sAddress="Jagannath"/>
+    <!--Using value as p schema-->
+
+    <bean class="com.practice.spring.Student" name="student2">
+        <property name="id" value="3"/>
+        <property name="sName" value="Gopal-Rai"/>
+        <property name="sAddress" value="Napasar"/>
+    </bean>
+    <!--Using value as attribute-->
+
+    <bean class="com.practice.spring.Student" name="student3">
+        <property name="id">
+            <value>001</value>
+        </property>
+        <property name="sName">
+            <value>Rahul</value>
+        </property>
+        <property name="sAddress">
+            <value>Jhelum</value>
+        </property>
+    </bean>
+    <!--using value as element-->
+
+    <!-- Dusri Class-->
+    <bean class="com.practice.spring.CollectionTypes" name="collectible">
+        <property name="name" value="Himani"/>
+        <property name="phones">
+            <list>
+                <value>0987654321</value>
+                <value>1234567890</value>
+                <value>2345678901</value>
+                <value>9876543210</value>
+            </list>
+        </property>
+        <property name="address">
+            <set>
+                <value>Maheshwar</value>
+                <value>Kanuj</value>
+                <value>Manali</value>
+                <value>Ooty</value>
+            </set>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="JAVA" value="2 month"/>
+                <entry key="Python" value="1.5 month"/>
+            </map>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="class_path">com.mysql.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://127.0.0.1:3306/database</prop>
+                <prop key="user_name">system</prop>
+                <prop key="password">manager</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Tisari Class-->
+    <bean class="com.practice.spring.ParentClass" name="b">
+        <property name="y" value="7"/>
+    </bean>
+    <bean class="com.practice.spring.ReferenceType" name="a" p:x="18" p:obj-ref="b"/>
+    <!-- <property name="x" value="18"/>
+        <property name="obj">
+            <ref bean="b"/>
+        </property>-->
+    <!-- Chauthi Class-->
+    <bean class="com.practice.spring.Certificate" name="cer">
+        <constructor-arg value="Java using maven"/>
+        <constructor-arg>
+            <list>
+                <value>denmark</value>
+                <value>Queens land</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean class="com.practice.spring.ConstructionInjection" name="p">
+        <constructor-arg>
+            <value>Rahul</value>
+        </constructor-arg>
+        <constructor-arg value="11"/>
+        <constructor-arg ref="cer"/>
+
+    </bean>
+
+</beans>

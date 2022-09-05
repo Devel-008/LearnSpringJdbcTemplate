@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns ="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+<!--    <context:annotation-config/>-->
+    <!--<bean id = "helloWorld" class = "com.practice.spring.InitDestory" init-method = "init"
+          destroy-method = "destroy">
+        <property name = "message" value = "Hello World!"/>
+    </bean>
+    <bean id="interface" class="com.practice.spring.UseInterfaceForInitDestroy">
+    <property name="price" value="40"/>
+    </bean>-->
+    <bean name="junction" class="com.practice.spring.AnnotationsPostContructPreDestroy">
+        <property name="msg" value="@PostConstruct AND @PreDestroy"/>
+    </bean>
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
+</beans>

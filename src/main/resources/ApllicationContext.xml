@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.practice.spring.Certificate" name="per" c:name="Android" c:places="ukraine,Austria" />
+    <bean class="com.practice.spring.ConstructionInjection" name="p1" c:name="Dina" c:id="12" c:certificate-ref="per"/>
+    <bean class="com.practice.spring.AmbiguityProblem" name="AM">
+        <constructor-arg value="33"/>
+        <constructor-arg value="24"/>
+    </bean>
+</beans>
