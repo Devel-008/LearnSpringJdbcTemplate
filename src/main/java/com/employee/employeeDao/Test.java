@@ -11,14 +11,14 @@ public class Test {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         EmployeeDao dao = (EmployeeDao) ctx.getBean("edao");
-       Scanner sc = new Scanner(System.in);
-       int id;
-       String name;
-       float salary;
-       int choice;
+        Scanner sc = new Scanner(System.in);
+        int id;
+        String name;
+        float salary;
+        int choice;
 
-        do {
-            System.out.println("PRESS 1 to INSERT\nPRESS 2 to UPDATE\nPRESS 3 to DELETE\nPRESS anyother key to exit: := ");
+         do {
+             System.out.println("PRESS 1 to INSERT\nPRESS 2 to UPDATE\nPRESS 3 to DELETE\nPRESS anyother key to exit: := ");
             choice = sc.nextInt();
 
             if(choice==1) {

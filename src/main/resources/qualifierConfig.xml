@@ -10,7 +10,7 @@
 
     <context:annotation-config/>
 
-    <bean class="com.practice.spring.AutoWiring1" name="auto">
+     <bean class="com.practice.spring.AutoWiring1" name="auto">
         <property name="street" value="KinMin"/>
         <property name="city" value="Japan"/>
     </bean>

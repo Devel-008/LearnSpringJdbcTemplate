@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns ="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list list-class="java.util.Vector" id="bff">
+        <value>Ram</value>
+        <value>Sam</value>
+        <value>Jam</value>
+        <value>Kam</value>
+        <value>Yam</value>
+    </util:list>
+    <util:map map-class="java.util.HashMap" id="fee">
+        <entry key="Java" value="100000"/>
+        <entry key="C#" value="70000"/>
+        <entry key="Data-Structure" value="90000"/>
+    </util:map>
+    <bean class="com.practice.spring.StandaloneCollections" name="person1">
+        <property name="friends">
+            <ref bean="bff"/>
+        </property>
+        <property name="fees" ref="fee"/>
+    </bean>
+    <bean class="com.practice.spring.StandaloneCollections" name="person2">
+        <property name="friends" ref="bff"/>
+        <property name="fees" ref="fee"/>
+    </bean>
+</beans>
