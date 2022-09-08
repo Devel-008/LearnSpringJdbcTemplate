@@ -22,14 +22,22 @@
         <entry key="C#" value="70000"/>
         <entry key="Data-Structure" value="90000"/>
     </util:map>
+    <util:properties id="props">
+        <prop key="1">com.postgresql.Driver</prop>
+        <prop key="2">Isha</prop>
+        <prop key="3">isha@0987</prop>
+        <prop key="4">postgres:jdbc://localhost:3306/database</prop>
+    </util:properties>
     <bean class="com.practice.spring.StandaloneCollections" name="person1">
         <property name="friends">
             <ref bean="bff"/>
         </property>
         <property name="fees" ref="fee"/>
+        <property name="properties" ref="props"/>
     </bean>
     <bean class="com.practice.spring.StandaloneCollections" name="person2">
         <property name="friends" ref="bff"/>
         <property name="fees" ref="fee"/>
+        <property name="properties" ref="props"/>
     </bean>
 </beans>
