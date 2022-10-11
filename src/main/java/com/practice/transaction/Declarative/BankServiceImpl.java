@@ -1,21 +1,8 @@
 package com.practice.transaction.Declarative;
 
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.TransactionCallback;
-import org.springframework.transaction.support.TransactionTemplate;
-
 public class BankServiceImpl implements BankService {
 
     private BankDao bankDao;
-    private TransactionTemplate transactionTemplate;
-
-    public TransactionTemplate getTransactionTemplate() {
-        return transactionTemplate;
-    }
-
-    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
-        this.transactionTemplate = transactionTemplate;
-    }
 
     public BankDao getBankDao() {
         return bankDao;
@@ -26,8 +13,12 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public void transferFund(Account fromAccount, Account toAccount, Double amount) {
-        transactionTemplate.execute(new TransactionCallback<Void>() {
+    public void transferFund(Account fromAccount, Account toAccount, Double amount) throws InsufficientBalanceException {
+
+        getBankDao().withdraw(fromAccount, toAccount, amount);
+        getBankDao().depoist(fromAccount, toAccount, amount);
+
+      /*  transactionTemplate.execute(new TransactionCallback<Void>() {
             @Override
             public Void doInTransaction(TransactionStatus status) {
                 try {
@@ -38,7 +29,6 @@ public class BankServiceImpl implements BankService {
                 }
                 return null;
             }
-        });
-
+        });*/
     }
 }
