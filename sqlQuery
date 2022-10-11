@@ -1,0 +1,1 @@
+create table bankAccount ( accountNo long primary key not null, accountType  varchar(50) , accountBalance double,  accountHolder varchar(50) not null);
